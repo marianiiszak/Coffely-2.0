@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffeely - Entrar</title>
+
+  <link href="https://fonts.cdnfonts.com/css/meldina" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/homela" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #fff6e9;
+      font-family: 'Alice', serif;
+      display: flex;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+    }
+
+    /* LADO ESQUERDO */
+    .left {
+      background-color: #f8c8c8;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end; 
+      padding: 40px;
+      padding-bottom: 65px; 
+      position: relative;
+    }
+
+    .image-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 550px; 
+    }
+
+    /* DECORAÇÃO ANIMADA */
+    .estrela-decor {
+      position: absolute;
+      height: 120px; 
+      width: auto;
+      top: -70px; 
+      left: 15%;  
+      object-fit: contain;
+      z-index: 3;
+      animation: flutuar 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes flutuar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .image-wrapper img.xicara {
+      width: 75%; 
+      height: 310px;
+      z-index: 1;
+      position: relative;
+    }
+
+    #smokeCanvas {
+      position: absolute;
+      bottom: 78%; 
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 300px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .left p {
+      color: #5c4033;
+      font-size: 18px;
+      line-height: 1.4;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      width: 45px;
+      height: 45px;
+      background-color: #8c7362;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 24px;
+      z-index: 10;
+    }
+
+    /* LADO DIREITO (Sem alterações) */
+    .right {
+      flex: 1;
+      background-color: #fff6e9;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .logo { width: 400px; margin-bottom: 0px; }
+    .right h2 { font-family: 'Homela', sans-serif; font-size: 30px; color: #8c7362; margin-bottom: 15px; text-align: center; }
+    form { display: flex; flex-direction: column; gap: 18px; width: 70%; max-width: 380px; align-items: center; }
+    input { width: 100%; padding: 13px 18px; border: none; border-radius: 25px; background-color: #f8c8c8; color: #5c4033; font-family: 'Alice', serif; font-size: 15px; }
+    .btn { background-color: #d08c8c; color: #fff; padding: 10px 0; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; width: 65%; font-size: 15px; }
+    .right p { margin-top: 25px; color: #5c4033; font-size: 15px; }
+    .right p a { color: #a85d5d; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="left">
+      <a href="index.html" class="back">←</a>
+      
+      <div class="image-wrapper">
+        <img src="decoracaos.png" class="estrela-decor" alt="Decoração">
+        
+        <canvas id="smokeCanvas"></canvas>
+        <img src="xicaras2.png" class="xicara" alt="Xícara de café">
+      </div>
+
+      <p>Compartilhe sua experiência conosco!<br>A leitura pode mudar vidas.</p>
+    </div>
+
+    <div class="right">
+      <img src="logo.png" class="logo" alt="Logo Coffeely">
+      <h2>Cadastre-se e aproveite</h2>
+      <form action="biblioteca.html">
+        <input type="text" placeholder="Nome" required>
+        <input type="text" placeholder="Nome de usuário" required>
+        <input type="password" placeholder="Senha de mínimo 8 digitos" required>
+        <img src="arabesco.png" style="width: 300px; margin: 15px;" alt="Arabesco">
+        <button type="submit" class="btn">Sign in</button>
+      </form>
+      <p>Já possui uma conta? <a href="entrar.html">Entrar</a></p>
+    </div>
+  </div>
+
+<script>
+  window.addEventListener('load', () => {
+    const canvas = document.getElementById('smokeCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+    const smokeParticles = [];
+
+    class Smoke {
+      constructor() {
+        this.x = canvas.width / 2 + (Math.random() * 20 - 10);
+        this.y = canvas.height; 
+        this.size = Math.random() * 10 + 15;
+        this.speedY = Math.random() * 0.2 + 0.15; 
+        this.speedX = Math.random() * 0.2 - 0.1;
+        this.opacity = Math.random() * 0.15 + 0.15;
+      }
+      update() {
+        this.y -= this.speedY;
+        this.x += this.speedX;
+        this.opacity -= 0.0008; 
+        if(this.size < 50) this.size += 0.15;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (smokeParticles.length < 15) {
+        if(Math.random() > 0.97) smokeParticles.push(new Smoke());
+      }
+      for (let i = smokeParticles.length - 1; i >= 0; i--) {
+        smokeParticles[i].update();
+        smokeParticles[i].draw();
+        if (smokeParticles[i].opacity <= 0) smokeParticles.splice(i, 1);
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  });
+</script>
+</body>
+</html>

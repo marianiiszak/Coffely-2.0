@@ -1,0 +1,238 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo */
+body {
+  font-family: 'Alice', serif;
+  color: #5c4033;
+  text-align: center;
+  background-color: #fff;
+}
+
+/* Navbar */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-btn {
+  text-decoration: none;
+  font-family: 'Alice', serif;
+  background-color: #f8c8c8;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #5c4033;
+  transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+  background-color: #f6b6b6;
+}
+
+.nav-btn.destaque {
+  background-color: #f29797;
+  color: #fff;
+}
+
+.hero {
+  position: relative;
+  background: url("fundocoffee.png") no-repeat center center;
+  background-size: cover;
+  height: 120vh; /* ocupa a tela inteira */
+}
+
+.hero-content {
+  position: absolute;
+  top: 73px;   /* controla a altura do texto */
+  left: 50%;
+  transform: translateX(-50%); /* centraliza horizontal */
+  text-align: center;
+  color: #5c4033;
+}
+
+.hero .logo {
+  font-family: 'Meldina', sans-serif;
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+/* DECORAÇÃO ANIMADA - DOCES */
+.doce-decor {
+  position: absolute;
+  height: 80px; /* ligeiramente menor para não competir com a logo */
+  width: auto;
+  z-index: 2;
+  pointer-events: none;
+  animation: flutuar 5s ease-in-out infinite;
+}
+
+/* --- DISTRIBUIÇÃO SIMÉTRICA --- */
+/* Referência: centro visual da hero-content */
+
+/* Superior esquerdo */
+.d1 {
+  top: 140px;
+  left: 22%;
+  animation-delay: 0s;
+}
+
+/* Superior direito */
+.d2 {
+  top: 140px;
+  right: 22%;
+  animation-delay: 0.5s;
+}
+
+/* Inferior esquerdo */
+.d3 {
+  top: 320px;
+  left: 10%;
+  animation-delay: 1s;
+}
+
+/* Inferior direito */
+.d4 {
+  top: 320px;
+  right: 10%;
+  animation-delay: 1.5s;
+}
+
+/* Animação mais elegante e menos invasiva */
+@keyframes flutuar {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+/* Ajuste no Hero para garantir que tudo fique no lugar */
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 120vh;
+}
+
+/* Garante que a seção hero seja o ponto de referência */
+.hero {
+  position: relative;
+  overflow: hidden; /* Evita que os doces criem barra de rolagem */
+}
+
+.hero .slogan {
+  font-family: 'Alice', serif;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.bem-vindo {
+  background-color: #f8c8c8; /* Cor rosa de fundo */
+  padding: 60px 20px;       /* Espaçamento interno */
+  width: 100%;              /* Garante que ocupe toda a largura */
+}
+
+.titulo-wrapper {
+  display: flex;
+  align-items: center;    
+  justify-content: center; 
+  gap: 20px;               
+  margin-bottom: 50px;    
+}
+
+.bem-vindo h2 {
+  font-family: 'Homela', sans-serif;
+  font-size: 65px;
+  color: #8c7362;
+  margin-bottom: 0;
+}
+
+/* Mantém suas estrelas com o tamanho e animação */
+.estrela-decor {
+  height: 65px; 
+  width: auto;
+  object-fit: contain;
+  animation: flutuar 3s ease-in-out infinite;
+}
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.card {
+  background-color: #fff6e9;
+  padding: 25px;
+  border-radius: 12px;
+  width: 260px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 4px 6px 15px rgba(0,0,0,0.2);
+}
+
+.card h3 {
+  font-family: 'Alice', serif;
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #5c4033;
+}
+
+.card p {
+  font-family: 'Alice', serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #5c4033;
+}
+
+/* Botão inscreva */
+.btn-inscreva {
+  background-color: #fff;
+  padding: 14px 30px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Alice', serif;
+  color: #5c4033;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+
+.btn-inscreva:hover {
+  background-color: #f6f6f6;
+}
+
+/* Rodapé */
+footer {
+  background-color: #d08c8c;
+  padding: 18px;
+  color: #fff;
+  font-size: 14px;
+  font-family: 'Alice', serif;
+}

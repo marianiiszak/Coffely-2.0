@@ -1,0 +1,402 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: #ffffff; 
+  height: 80px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-left .logo {
+  height: 45px; 
+  width: auto;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 15px; 
+  position: absolute; 
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-btn {
+  text-decoration: none;
+  font-family: 'Alice', serif;
+  background-color: #f4d1d4;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #5c4033;
+  transition: all 0.3s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.nav-btn.destaque {
+  background-color: #e58f8f;
+  color: #fff;
+}
+
+.nav-btn:hover {
+  background-color: #f6b6b6;
+  transform: translateY(-2px);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.biblioteca-container {
+  margin-top: 80px;
+  padding: 60px 8% 60px;
+  background-color: #f8c8c8;
+  min-height: calc(100vh - 80px);
+}
+
+.titulo-wrapper {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.titulo-biblioteca {
+  font-family: 'Homela', cursive;
+  font-size: 50px; 
+  color: #8a6b58;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
+  margin: 0; 
+  line-height: 1;
+}
+
+.titulo-wrapper::after {
+  content: "Explore sua coleção particular"; 
+  font-family: 'Alice', serif;
+  font-size: 18px;
+  color: #a67c65;
+  font-style: italic;
+  opacity: 0.9;
+  margin-top: 5px;
+}
+
+.controle-biblioteca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: rgba(255, 255, 255, 0.85); /* Um pouco mais sólido para leitura */
+  padding: 5px 20px;
+  border-radius: 50px; 
+  margin: 0 auto 50px;
+  max-width: 900px; 
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 20px rgba(138, 107, 88, 0.15);
+  transition: all 0.3s ease;
+}
+
+.controle-biblioteca {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  gap: 10px;
+  background-color: #fff9f6; 
+  padding: 0 25px; 
+  border-radius: 40px;
+  margin: 0 auto 50px;
+  max-width: 600px;
+  height: 55px; 
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 15px rgba(138, 107, 88, 0.1);
+}
+
+.busca {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: 'Alice', serif;
+  font-size: 16px;
+  color: #6b4c3b;
+  text-align: left !important; 
+  width: 100%;
+}
+
+.busca::placeholder {
+  color: #8a6b58;
+  opacity: 0.6;
+  text-align: left;
+}
+
+.grid-livros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 40px;
+    justify-items: center;
+    padding: 40px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.livro {
+  width: 110px;
+  height: 160px;
+  background-color: #fff;
+  border-radius: 4px 8px 8px 4px;
+  border-left: 5px solid rgba(0,0,0,0.05);
+  box-shadow: 3px 5px 15px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.livro:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 5px 10px 20px rgba(0,0,0,0.15);
+}
+
+/* a partir daqui ingual antes*/
+.btn-add {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 65px;
+  height: 65px;
+  background-color: #fff3ea;
+  color: #e58f8f;
+  border: 6px solid #e58f8f;
+  border-radius: 50%;
+  font-size: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 3000;
+  transition: transform 0.2s;
+}
+
+.btn-add:hover {
+  transform: scale(1.1);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.ativo {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-livro {
+  background: #fff;
+  width: 620px; 
+  max-width: 95%;
+  padding: 30px; 
+  border-radius: 20px; 
+  border: 7px solid #d88f8f;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: entradaModal 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes entradaModal {
+  from { opacity: 0; transform: scale(0.8) translateY(30px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-fechar {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: #e58f8f;
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal-conteudo {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+  margin-top: 10px; 
+}
+
+.modal-capa {
+  width: 190px;
+  height: 270px;
+  background: #f4d1d4; 
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  color: #e58f8f;
+  border: 2px dashed #e58f8f; 
+  flex-shrink: 0;
+}
+
+.modal-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-form label {
+  font-family: 'Alice', serif;
+  color: #6b4c3b;
+  font-weight: bold;
+}
+
+.modal-form input, .modal-input-select {
+  padding: 12px 16px;
+  border-radius: 20px;
+  border: 1px solid #e38989;
+  background: #ffd2d2;
+  outline: none;
+  font-family: 'Alice', serif;
+  color: #6b4c3b;
+}
+
+.modal-feedback {
+    text-align: center;
+    padding: 50px 40px;
+    background: #fffaf8;
+}
+
+.feedback-topo {
+    display: flex;
+    align-items: center;    
+    justify-content: center; 
+    gap: 40px;
+    width: 100%;
+    margin-bottom: 20px;    
+}
+
+.feedback-icon {
+    width: 70px;
+    height: 70px;
+    background: #e58f8f;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    box-shadow: 0 10px 20px rgba(229, 143, 143, 0.3);
+    animation: pulseCheck 2s infinite;
+}
+
+@keyframes pulseCheck {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 143, 143, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(229, 143, 143, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 143, 143, 0); }
+}
+
+.feedback-titulo {
+    font-family: 'Homela', cursive;
+    color: #8a6b58;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.feedback-subtitulo {
+    font-family: 'Alice', serif;
+    color: #8a6b58;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.feedback-acoes {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.btn-salvar {
+    background-color: #e58f8f;
+    color: white;
+    box-shadow: 0 4px 0px #b56b6b;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-family: 'Alice', serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-pular {
+    background-color: #8a6b58;
+    color: white;
+    box-shadow: 0 4px 0px #745a4a;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-family: 'Alice', serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-salvar:hover, .btn-pular:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0px #745a4a; 
+}
+.confete {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  z-index: 10001;
+  pointer-events: none;
+  border-radius: 2px;
+  animation: cairAnim 3s linear forwards;
+}
+
+@keyframes cairAnim {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.footer-biblioteca {
+  text-align: center;
+  padding: 30px;
+  font-family: 'Alice', serif;
+  color: #8a6b58;
+}
