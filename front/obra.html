@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre a Obra | Coffeely</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/homela" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="/front/css/style.css">
+  <link rel="stylesheet" href="/front/css/obra.css">
+
+</head>
+<body class="pagina-obra">
+    <nav class="navbar-topo">
+        <div class="nav-container">
+            <button class="btn-voltar-topo" onclick="window.history.back()" title="Voltar">
+                <i class="fa-solid fa-circle-arrow-left"></i>
+            </button>
+            <img src="/front/images/logobranca.png" alt="Coffeely" class="logo-topo-ajustada">
+            <div class="nav-espacador-direito"></div>
+        </div>
+    </nav>
+
+    <main class="container-principal">
+        
+        <div class="titulo-wrapper titulo-obra">
+        <img src="/front/images/estrelas1.png" class="estrela-decor" alt="estrela">
+
+        <h1 class="titulo-biblioteca">Sobre a obra</h1>
+
+        <img src="/front/images/estrelas2.png" class="estrela-decor" alt="estrela">
+        </div>
+        
+        <div class="grid-principal">
+            <section class="coluna-esquerda">
+                
+                <article class="card-sobre-obra">
+                    <div class="capa-container">
+                        <div class="livro-capa-v2" style="background-image: url('https://m.media-amazon.com/images/I/91SrnWvL7yL._AC_UF1000,1000_QL80_.jpg');"></div>
+                    </div>
+                    <div class="obra-detalhes">
+                        <h1>Romeu e Julieta</h1>
+                        <div class="sinopse-curta">
+                            <p>Uma tragédia clássica sobre dois jovens apaixonados de famílias rivals, cujo amor proibido desafia o destino.</p>
+                        </div>
+                        <div class="meta-dados-box">
+                            <div class="meta-item">
+                                <span class="meta-label">Autor(a)</span>
+                                <span class="meta-valor">William Shakespeare</span>
+                            </div>
+                            <div class="divisor-vertical"></div>
+                            <div class="meta-item">
+                                <span class="meta-label">Lançamento</span>
+                                <span class="meta-valor">1591 (aprox.)</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+<div class="header-resenhas">
+    <div class="titulo-wrapper titulo-resenhas">
+        <img src="/front/images/estrelas1.png" class="estrela-decor" alt="estrela">
+
+        <h1 class="titulo-biblioteca">Resenhas populares</h1>
+
+        <img src="/front/images/estrelas2.png" class="estrela-decor" alt="estrela">
+    </div>
+
+    <a href="#" id="ver-populares">Ver mais resenhas →</a>
+</div>
+
+<div id="feed-posts"></div>
+
+            </section>
+
+            <aside class="coluna-direita">
+                
+                <div class="card-interacao">
+                    <div class="botoes-topo-flex">
+                        <div class="item-btn" onclick="abrirModal()">
+                            <div class="circulo-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+                            <span>Resenhar</span>
+                        </div>
+                        <div class="item-btn" onclick="abrirModalBiblioteca()">
+                            <div class="circulo-icon"><i class="fa-solid fa-book-open"></i></div>
+                            <span>Biblioteca</span>
+                        </div>
+                        <div class="item-btn" onclick="toggleFavorito(this)">
+                            <div class="circulo-icon heart-icon"><i class="fa-regular fa-heart"></i></div>
+                            <span class="txt-favorito">Favoritar</span>
+                        </div>
+                    </div>
+
+                    <div class="sua-avaliacao-box">
+                        <p class="titulo-sua-avaliacao">Sua avaliação</p>
+                        <div class="estrelas-interativas" id="user-stars">
+                            <i class="fa-regular fa-star" data-value="1"></i>
+                            <i class="fa-regular fa-star" data-value="2"></i>
+                            <i class="fa-regular fa-star" data-value="3"></i>
+                            <i class="fa-regular fa-star" data-value="4"></i>
+                            <i class="fa-regular fa-star" data-value="5"></i>
+                        </div>
+                        <a href="#" id="ver-minha-atividade" class="ver-mais-pequeno">
+                            Ver minha atividade →</a>
+                    </div>
+
+                    <div class="status-badge-container" id="badge-biblioteca-status" style="display: none;">
+                        <span class="badge-texto">Status: <strong id="txt-status-atual">Nenhum</strong></span>
+                    </div>
+                </div>
+
+                <div class="sidebar-estatisticas">
+                    <div class="cabecalho-media">
+                        <h3>Média avaliativa:</h3>
+                    </div>
+                    
+                    <div class="container-media-flex">
+                        <div class="media-resumo">
+                            <span class="nota-grande">3.3</span>
+                            <div class="estrelas-fixas">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <span class="total-avaliacoes">550 avaliações</span>
+                        </div>
+
+                        <div class="grafico-histograma">
+                            <div class="linhas-fundo">
+                                <div class="linha"></div>
+                                <div class="linha"></div>
+                                <div class="linha"></div>
+                                <div class="linha"></div>
+                            </div>
+                            <div class="barras-container" id="container-barras"></div>
+                        </div>
+                    </div>
+
+                    <div class="legenda-eixo-x">
+                        <span>0.5</span><span>1.0</span><span>1.5</span><span>2.0</span><span>2.5</span>
+                        <span>3.0</span><span>3.5</span><span>4.0</span><span>4.5</span><span>5.0</span>
+                    </div>
+                </div>
+
+                <div class="xicara-decor">
+    <img src="/front/images/xicara3.png" alt="Xícara de Café" class="xicara-animada">
+</div>
+            </aside>
+        </div>
+
+        <!-- MODAL DE RESENHA -->
+        <div id="modal-resenha" class="modal-container">
+    <div class="modal-box">
+        <i class="fa-solid fa-xmark btn-fechar" onclick="fecharModal()"></i>
+        
+        <div class="modal-header-texto">
+            <span class="modal-subtitle">Nova resenha para</span>
+            <h3 class="modal-title-obra">Romeu e Julieta</h3>
+        </div>
+
+        <div class="letterboxd-bar-coffely">
+            
+            <div class="campo-data-leitura">
+                <label for="data-leitura-input"><i class="fa-regular fa-calendar-days"></i> Lido em:</label>
+                <div class="wrapper-input-data">
+                    <input type="date" id="data-leitura-input" class="input-data-coffely">
+                    <button type="button" id="btn-limpar-data" class="btn-limpar-data" onclick="limparDataLeitura()" title="Remover data">&times;</button>
+                </div>
+            </div>
+
+            <div class="campo-avaliacao-favorito">
+                <div class="wrapper-estrelas-modal">
+                    <span class="label-avaliacao">Sua avaliação:</span>
+                    <div id="user-stars-modal" class="estrelas-modal-interativas">
+                        <i class="fa-regular fa-star" data-index="1"></i>
+                        <i class="fa-regular fa-star" data-index="2"></i>
+                        <i class="fa-regular fa-star" data-index="3"></i>
+                        <i class="fa-regular fa-star" data-index="4"></i>
+                        <i class="fa-regular fa-star" data-index="5"></i>
+                    </div>
+                </div>
+
+                <button type="button" id="btn-favoritar-modal" class="btn-fav-letterboxd" onclick="toggleFavoritoModal()" title="Adicionar aos favoritos">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="editor-container">
+            <div class="toolbar-estetica">
+    <button type="button" id="btn-bold" onclick="formatar('bold')"><i class="fa-solid fa-bold"></i></button>
+    <button type="button" id="btn-italic" onclick="formatar('italic')"><i class="fa-solid fa-italic"></i></button>
+    <button type="button" id="btn-quote" onclick="formatar('formatBlock', 'blockquote')"><i class="fa-solid fa-quote-left"></i></button>
+</div>
+            <div id="editor-texto" class="campo-texto" contenteditable="true" placeholder="Escreva sua resenha aqui..."></div>
+        </div>
+
+        <div class="modal-opcoes-footer">
+            <div class="opcoes-esquerda">
+                <label class="spoiler-label">
+                    <input type="checkbox" id="check-spoiler">
+                    <span class="spoiler-custom"></span> Contém Spoiler
+                </label>
+                <button type="button" class="btn-toggle-extra" id="btn-relido" onclick="this.classList.toggle('active')">
+                    <i class="fa-solid fa-repeat"></i> Relido
+                </button>
+            </div>
+            <button class="btn-publicar" type="button" onclick="publicarResenha()">Publicar</button>
+        </div>
+    </div>
+</div>
+        <div id="modal-biblioteca" class="modal-container">
+            <div class="modal-box modal-box-biblioteca">
+                <i class="fa-solid fa-xmark btn-fechar" onclick="fecharModalBiblioteca()"></i>
+                <div class="modal-header-texto">
+                    <span class="modal-subtitle">Adicionar à sua estante</span>
+                    <h3 class="modal-title-obra">Definir Status</h3>
+                </div>
+                
+                <div class="corpo-status-modal">
+                    <p class="instrucao-modal">Onde você deseja organizar este livro?</p>
+                    <div class="grupo-botoes-status">
+                        <button class="btn-status-opcao" onclick="selecionarStatusObra('Lendo')">Lendo Atualmente</button>
+                        <button class="btn-status-opcao" onclick="selecionarStatusObra('Quero Ler')">Quero Ler</button>
+                        <button class="btn-status-opcao" onclick="selecionarStatusObra('Lido')">Lido</button>
+                        <button class="btn-status-opcao" onclick="selecionarStatusObra('Abandonado')">Abandonado</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+<footer class="footer-geral">
+  <div class="footer-conteudo">
+    
+    <div class="footer-bloco-gato">
+      <img src="/front/images/gatodeitado.png" alt="Gato deitado" class="footer-gato-ilustracao">
+      <div id="z-container"></div>
+    </div>
+
+    <div class="footer-bloco-marca">
+      <img src="/front/images/logobranca.png" alt="Coffeely Logo" class="footer-logo">
+      <p class="footer-copyright">© 2026 Coffeely. Todos os direitos reservados.</p>
+    </div>
+
+    <img src="/front/images/decoracao+clara.png" alt="Decoração" class="footer-decoracao">
+
+    <div class="footer-bloco-direita">
+      <div class="footer-direita-redes">
+        <a href="#" class="rede-social-item" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span>Instagram</span>
+        </a>
+
+        <a href="#" class="rede-social-item" title="Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          <span>Twitter</span>
+        </a>
+      </div>
+      
+      <div class="footer-centro">
+        <a href="#">Sobre Nós</a>
+      </div>
+    </div>
+
+  </div>
+</footer>   
+<div id="phaser-layer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+
+<script src="/front/js/obra.js"></script></body>
+<script src="/front/js/biblioteca-phaser.js"></script>
+<script src="/front/js/script.js"></script>
+</body>
+</html>

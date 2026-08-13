@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descubra | Coffeely</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/homela" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/front/css/style.css">
+  <link rel="stylesheet" href="/front/css/descubra.css">
+
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-left">
+    <img src="/front/images/logo.png" alt="Coffeely" class="logo">
+  </div>
+
+  <nav class="nav-center">
+    <a href="biblioteca.html" class="nav-btn">Biblioteca</a>
+    <a href="descubra.html" class="nav-btn destaque">Descubra</a>
+    <a href="resenhas.html" class="nav-btn">Resenhas</a>
+    <a href="cafeteria.html" class="nav-btn">Cafeteria</a>
+  </nav>
+
+ <div class="nav-right">
+  <div class="perfil-icon"></div>
+    </div>
+</header>
+
+<main class="biblioteca-container">
+   
+  <div class="titulo-wrapper" style="flex-direction: column; gap: 10px;">
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <img src="/front/images/estrelas1.png" class="estrela-decor" alt="estrela">
+      <h1 class="titulo-biblioteca">Descubra</h1>
+      <img src="/front/images/estrelas2.png" class="estrela-decor" alt="estrela">
+    </div>
+    <p class="subtitulo-biblioteca">Adicone novas obras à suas prateleiras</p>
+  </div>
+
+  <div class="faixa-pesquisa">
+  <div class="controle-biblioteca">
+    <div class="busca-wrapper">
+      <input type="text" id="input-busca" class="busca" placeholder="Buscar por títulos ou autores">
+      <button type="button" class="btn-busca-circulo" onclick="document.getElementById('input-busca').focus()">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+  </div>
+  </div>
+
+  <section id="conteudo-descubra" class="grid-livros"></section>
+</main>
+
+<button class="btn-add">+</button>
+
+<footer class="footer-geral">
+  <div class="footer-conteudo">
+    <div class="footer-bloco-gato">
+      <img src="/front/images/gatodeitado.png" alt="Gato deitado" class="footer-gato-ilustracao">
+      <div id="z-container"></div>
+    </div>
+
+    <div class="footer-bloco-marca">
+      <img src="/front/images/logobranca.png" alt="Coffeely Logo" class="footer-logo">
+      <p class="footer-copyright">© 2026 Coffeely. Todos os direitos reservados.</p>
+    </div>
+
+    <img src="/front/images/decoracao+clara.png" alt="Decoração" class="footer-decoracao">
+
+    <div class="footer-bloco-direita">
+      <div class="footer-direita-redes">
+        <a href="#" class="rede-social-item" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <span>Instagram</span>
+        </a>
+        <a href="#" class="rede-social-item" title="Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span>Twitter</span>
+        </a>
+      </div>
+      <div class="footer-centro">
+        <a href="#">Sobre Nós</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalLivro">
+  <div class="modal-livro">
+    <i class="fa-solid fa-xmark btn-fechar"></i>
+    <div class="modal-conteudo">
+      <div class="modal-capa">
+        <span>+</span>
+      </div>
+      <div class="modal-form">
+        <label>Nome do livro:</label>
+        <input type="text" id="novoTitulo">
+        <label>Autor(a):</label>
+        <input type="text" id="novoAutor">
+        <label>Lançamento aproximado (opcional):</label>
+        <input type="text" id="novoAno">
+        <button class="btn-salvar">Adicionar obra ao sistema</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalConfirmacao">
+  <div class="modal-livro modal-feedback" style="position: relative; overflow: hidden;">
+    <div class="feedback-topo">
+      <img src="/front/images/estrelarosainvertida.png" class="estrela-decor2" alt="estrela">
+      <div class="feedback-icon"></div>
+      <img src="/front/images/estrelasrosa.png" class="estrela-decor2" alt="estrela">
+    </div>
+    <h2 class="feedback-titulo">Obra Adicionada!</h2>
+    <p class="feedback-subtitulo">
+      O livro foi registrado com sucesso. <br>
+      Deseja organizá-lo em sua biblioteca agora?
+    </p>
+
+    <div class="feedback-form">
+      <label>Mover para a prateleira:</label>
+      <select id="categoriaLivro" class="modal-input-select">
+        <option value="Lidos">Lidos</option>
+        <option value="Lendo">Lendo</option>
+        <option value="Em pausa">Em pausa</option>
+        <option value="Quero ler" selected>Quero ler</option>
+      </select>
+    </div>
+
+    <div class="feedback-acoes">
+      <button class="btn-salvar" id="confirmarCategoria">Organizar agora</button>
+      <button class="btn-pular" id="pularCategoria">Depois</button>
+    </div>
+  </div>
+</div>
+
+<div id="phaser-layer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+<script src="/front/js/descubra.js"></script>
+<script src="/front/js/script.js"></script>
+</body>
+</html>

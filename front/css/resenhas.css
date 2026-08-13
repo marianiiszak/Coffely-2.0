@@ -1,0 +1,70 @@
+.biblioteca-container{
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 80px);
+}
+
+.footer-geral{
+    margin-top: 60px;
+    flex-shrink: 0;
+}
+
+.titulo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.controle-biblioteca {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff3ea;
+    padding: 10px 20px;
+    border-radius: 30px;
+    margin: 0 auto;
+    max-width: 900px;
+    width: 90%;
+}
+
+.filtros {
+    display: flex;
+    gap: 12px;
+}
+
+.filtro {
+    background: #fff3ea;
+    border: none;
+    border-radius: 22px;
+    padding: 10px 20px;
+    font-family: 'Alice', serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #6b4c3b;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.filtro:hover {
+    background: #f4d1d4;
+}
+
+.filtro.ativo {
+    background: #e58f8f;
+    color: white;
+}
+
+
+.layout-resenhas {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 40px;
+    flex:1;
+    align-items: flex-start;
+}
+
+
+

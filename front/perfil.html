@@ -1,0 +1,166 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.cdnfonts.com/css/meldina" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/front/css/perfil.css">
+
+<title>Perfil</title>
+</head>
+
+<body>
+
+<div class="overlay" id="overlay"></div>
+<div class="config-modal" id="configModal">
+
+    <div class="config-header">
+        <h2>Configurações:</h2>
+
+        <button class="fechar" onclick="fecharConfig()">
+            <img src="imagens/configu.png" alt="">
+        </button>
+    </div>
+
+    <hr>
+
+    <div class="grupo">
+        <h3>Conta</h3>
+
+        <a href="#">Apagar a conta</a>
+        <a href="#">Sair da conta</a>
+    </div>
+
+    <hr>
+
+    <div class="grupo">
+        <h3>Senha</h3>
+
+        <a href="#">Redefinir senha</a>
+    </div>
+
+    <hr>
+
+    <div class="grupo">
+        <h3>Atividade</h3>
+
+        <a href="#">Biblioteca</a>
+        <a href="#">Resenhas</a>
+        <a href="#">Cafeteria</a>
+        <a href="#">Comentários</a>
+        <a href="#">Curtidas</a>
+    </div>
+
+</div>
+
+<header class="navbar">
+
+    <a href="biblioteca.html" class="back">
+        <img src="imagens/arrow_back_25dp_FCC6C4_FILL0_wght400_GRAD0_opsz24.png">
+    </a>
+
+    <img src="imagens/logo.png" class="logo-text">
+
+    <img src="imagens/configu.png"
+         class="config"
+         onclick="abrirConfig()">
+
+</header>
+
+<section class="perfil">
+
+    <div class="topo">
+
+        <!-- AVATAR -->
+        <div class="avatar-area">
+            <img src="imagens/gatoperfil.png" class="avatar">
+            <img src="imagens/estrelinha1.png" class="estrelaDoPerfil">
+            <img src="imagens/lápis.png" class="edit-avatar">
+        </div>
+
+        <!-- INFORMAÇÕES -->
+        <div class="info-area">
+
+            <div class="input-box">
+                <input type="text" value="Nome de usuário">
+                <img src="imagens/lápis.png" class="editname">
+            </div>
+
+            <div class="cupcakes">
+                <img src="imagens/cupcake.png">
+                <span>Seus cupcakes: 377</span>
+            </div>
+
+        </div>
+
+        <!-- BOLO -->
+        <div class="bolo-area">
+            <img src="imagens/bolo.png">
+        </div>
+
+    </div>
+
+    <!-- CARDS -->
+    <div class="cards">
+
+        <div class="card">
+            <p>Quantidade de livros lidos</p>
+            <div class="card-info">
+                <h2>205</h2>
+            </div>
+        </div>
+
+        <div class="card">
+            <p>Quantidade de avaliações feitas</p>
+            <img src="imagens/star.png" class="imgcard">
+            <div class="card-info">
+                <h2>115</h2>
+            </div>
+        </div>
+
+        <div class="card">
+            <p>Quantidade de resenhas feitas</p>
+            <div class="card-info">
+                <h2>103</h2>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BOTÃO -->
+<div class="add">
+    <button>+</button>
+</div>
+
+<footer>
+    © 2025 Coffeely
+</footer>
+
+<script>
+
+const modal = document.getElementById("configModal");
+const overlay = document.getElementById("overlay");
+
+function abrirConfig(){
+    modal.style.display = "block";
+    overlay.style.display = "block";
+}
+
+function fecharConfig(){
+    modal.style.display = "none";
+    overlay.style.display = "none";
+}
+
+overlay.onclick = fecharConfig;
+
+</script>
+
+</body>
+</html>
+```
