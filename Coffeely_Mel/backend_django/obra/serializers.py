@@ -8,10 +8,11 @@ class ObraSerializer(serializers.ModelSerializer):
         model = Obra
         fields = '__all__'
 
+
 class BibliotecaSerializer(serializers.ModelSerializer):
 
-    obra = ObraSerializer(read_only=True)
+    obra_dados = ObraSerializer(source='obra', read_only=True)
 
     class Meta:
         model = Biblioteca
-        fields = "__all__"
+        fields = ['id', 'usuario', 'obra', 'obra_dados', 'categoria']

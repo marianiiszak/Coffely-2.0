@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resenhas | Coffeely</title>
+  <title>Cafeteria | Coffeely</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/homela" rel="stylesheet">
@@ -15,8 +16,7 @@
 
 
   <link rel="stylesheet" href="/front/css/style.css">
-  <link rel="stylesheet" href="/front/css/resenhas.css">
-  <link rel="stylesheet" href="/front/css/biblioteca.css">
+  <link rel="stylesheet" href="/front/css/cafeteria.css">
 </head>
 <body>
 
@@ -29,8 +29,8 @@
   <nav class="nav-center">
     <a href="biblioteca.html" class="nav-btn">Biblioteca</a>
     <a href="descubra.html" class="nav-btn">Descubra</a>
-    <a href="resenhas.html" class="nav-btn destaque">Resenhas</a>
-    <a href="cafeteria.html" class="nav-btn">Cafeteria</a>
+    <a href="resenhas.html" class="nav-btn">Resenhas</a>
+    <a href="cafeteria.html" class="nav-btn destaque">Cafeteria</a>
   </nav>
 
     <div class="nav-right">
@@ -38,40 +38,7 @@
     </div>
 </header>
 
-<main class="biblioteca-container">
-    
-    <div class="titulo-wrapper">
-        <img src="/front/images/estrelas1.png" class="estrela-decor" alt="estrela">
-        <h1 class="titulo-biblioteca">Resenhas</h1>
-        <img src="/front/images/estrelas2.png" class="estrela-decor" alt="estrela">
-    </div>
-
-<div class="faixa-pesquisa">
-    <div class="controle-biblioteca">
-
-        <div class="filtros-wrapper">
-            <button class="filtro ativo" id="filtro-recentes">
-                Recentes
-            </button>
-            <button class="filtro" id="filtro-curtidas">
-                Mais Curtidas
-            </button>
-        </div>
-
-    </div>
-</div>
-
-    <div class="layout-resenhas">
-        <section id="feed-posts"></section>
-        
-        <aside class="sidebar-resenhas">
-            <h3 class="sidebar-titulo">Avalie livros da sua biblioteca!</h3>
-            <p class="sidebar-subtitulo">Livros não avaliados:</p>
-            <div id="lista-sidebar" class="sidebar-lista-container"></div>
-            <a href="#" class="ver-mais">ver todos &#8594;</a>
-        </aside>   
-    </div>
-</main>
+<main class="biblioteca-container"></main>
 
 <button class="btn-add">+</button>
 
@@ -180,6 +147,6 @@
 
 <script src="/front/js/biblioteca-phaser.js"></script>
 <script src="/front/js/script.js"></script>
-<script src="/front/js/resenhas.js"></script>
-</body>
+<script src="/front/js/cafeteria.js"></script></body>
 </html>
+

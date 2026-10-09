@@ -1,0 +1,473 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8e7d0;
+    font-family: 'Alice', serif;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+.navbar {
+    height: 100px;
+    background: #eca8a6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* LOGO CENTRAL */
+.logo-text {
+    width: 290px;
+}
+
+/* SETA */
+.back {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 55px;
+    height: 55px;
+    background-color: #ac8977;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back img {
+    width: 34px;
+}
+
+/* CONFIG */
+.config {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    background-color:#d97c7c;
+    border-radius: 50px;
+}
+
+/* CONTEÚDO */
+.perfil {
+    padding: 0px 100px;
+    flex: 1;
+}
+
+/* TOPO */
+.topo {
+    display: flex;
+    grid-template-columns: 340px auto 300px;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+}
+
+/* AVATAR */
+.avatar{
+    width:100%;
+    display:block;
+}
+.avatar-area{
+    position: relative;
+    width: 520px;
+    height: auto;
+    transform: translateY(45px);
+}
+
+.edit-avatar{
+    position: absolute;
+
+    width: 48px;
+
+    bottom: 28px;
+    right: 100px;
+
+    background-color: #fac5c3;
+    border-radius: 50%;
+    padding: 8px;
+
+    cursor: pointer;
+    z-index: 6;
+}
+
+/* INFO */
+.info-area{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:22px;
+    margin-left:-20px;
+}
+
+.label {
+    color: #6b4c3b;
+    font-weight: bold;
+    font-family: 'Alice', serif;
+}
+
+/* INPUT */
+.input-box{
+    width:500px;
+    height:68px;
+
+    background:#fff6eb;
+
+    border-radius:35px;
+
+    padding:0 25px;
+
+    display:flex;
+    align-items:center;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.08);
+}
+
+.input-box input{
+    border: none;
+    outline: none;
+    background: transparent;
+    box-shadow: none;
+
+    flex: 1;
+    font-family: 'Alice', serif;
+    font-size: 20px;
+    color: #6b4c3b;
+}
+
+.editname{
+    width:42px;
+    padding:8px;
+    border-radius:50%;
+    background:#eca8a6;
+}
+/* CUPCAKES */
+.cupcakes{
+
+    width:320px;
+    height:70px;
+
+    background:#eca8a6;
+
+    border-radius:35px;
+
+    display:flex;
+    align-items:center;
+
+    gap:15px;
+
+    padding:0 22px;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.08);
+}
+
+.cupcakes img{
+    width:80px;
+}
+
+.cupcakes span{
+
+    font-size:20px;
+    color:white;
+    font-weight:bold;
+}
+
+/* BOLO */
+.bolo-area {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 70px;
+}
+
+.bolo-area img {
+    width: 620px;
+}
+
+/* CARDS */
+.cards{
+
+    margin-top:60px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:80px;
+}
+
+.card{
+
+    width:660px;
+
+    height:220px;
+
+    background:#fff6eb;
+
+    border-radius:30px;
+
+    padding:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.12);
+
+    transition:.3s;
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 16px 28px rgba(0,0,0,.15);
+}
+
+.card p{
+
+    font-size:20px;
+
+    color:#6b4c3b;
+
+    text-align:center;
+
+    line-height:1.4;
+
+    font-weight:bold;
+}
+
+.card-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+}
+
+.card-info h2{
+
+    font-size:65px;
+
+    color:#6b4c3b;
+
+    font-weight:bold;
+}
+
+
+.imgcard{
+
+    width:42px;
+}
+
+/* BOTÃO */
+.add {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.add span {
+    background: #f8f1e8;
+    padding: 12px 20px;
+    border-radius: 20px;
+    color: #6b4c3b;
+    font-size: 14px;
+}
+
+.add button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    background: #d97c7c;
+    color: white;
+    font-size: 34px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 50px;
+    background: #d18d8d;
+    text-align: center;
+    padding: 20px 0px;
+    width: 100%;
+    height: 80px;
+    color: white;
+    font-family: 'Alice', serif;
+}
+
+.estrelaDoPerfil{
+    position: absolute;
+    top: 100px;
+    right: 18px;
+    width: 75px;
+    z-index: 5;
+}
+
+/* FUNDO ESCURO */
+
+.overlay{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+    display:none;
+
+    z-index:998;
+}
+
+/* JANELA */
+
+.config-modal{
+
+    position:fixed;
+
+    top:90px;
+    right:40px;
+
+    width:340px;
+
+    background:#fff8ef;
+
+    border:10px solid #eca8a6;
+
+    border-radius:8px;
+
+    display:none;
+
+    z-index:999;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+    overflow:hidden;
+}
+
+/* CABEÇALHO */
+
+.config-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px 14px;
+
+}
+
+.config-header h2{
+
+    font-family:'Alice',serif;
+
+    color:#7a5c49;
+
+    font-size:28px;
+
+}
+
+/* BOTÃO */
+
+.fechar{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#eca8a6;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.fechar img{
+
+    width:24px;
+}
+
+/* LINHAS */
+
+.config-modal hr{
+
+    border:none;
+
+    border-top:1px solid #ebc6aa;
+
+}
+
+/* BLOCOS */
+
+.grupo{
+
+    padding:10px 16px 14px;
+
+}
+
+.grupo h3{
+
+    color:#7a5c49;
+
+    margin-bottom:10px;
+
+    font-size:24px;
+
+}
+
+/* LINKS */
+
+.grupo a{
+
+    display:block;
+
+    padding:4px 0 4px 18px;
+
+    color:#7a5c49;
+
+    font-size:21px;
+
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+.grupo a:hover{
+
+    color:#d97c7c;
+
+    transform:translateX(5px);
+
+}

@@ -17,7 +17,6 @@ from rest_framework import viewsets
 def cadastro(request):
     username = request.data.get("username")
     password = request.data.get("password")
-    email = request.data.get("email")
 
     if User.objects.filter(username=username).exists():
         return Response({"error": "Usuário já existe"}, status=400)
@@ -25,7 +24,6 @@ def cadastro(request):
     user = User.objects.create_user(
         username=username,
         password=password,
-        email=email
     )
 
     return Response({

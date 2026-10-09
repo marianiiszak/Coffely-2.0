@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coffeely-Entrar</title>
+  <title>Coffeely - Entrar</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link href="https://fonts.cdnfonts.com/css/meldina" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/homela" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
-
   <style>
     body {
       background-color: #fff6e9;
@@ -91,22 +89,17 @@
       position: absolute;
       top: 25px;
       left: 25px;
-      text-decoration: none;
-      z-index: 10;
-      line-height: 0;
-    }
-
-    .back i { 
-      font-size: 35px; 
-      color: #8a6b58; 
-      cursor: pointer; 
-      background-color: white; 
+      width: 45px;
+      height: 45px;
+      background-color: #8c7362;
+      color: #fff;
       border-radius: 50%;
-      transition: transform 0.2s ease;
-    }
-
-    .back i:hover {
-      transform: scale(1.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 24px;
+      z-index: 10;
     }
 
     /* LADO DIREITO */
@@ -193,38 +186,35 @@
   <div class="container">
 
     <div class="left">
-      <a href="inicio.html" class="back">
-        <i class="fa-solid fa-circle-arrow-left"></i>
-      </a>
+      <a href="index.html" class="back">←</a>
 
       <div class="image-wrapper">
-        <img src="/front/images/decoracaos.png" class="estrela-decor" alt="Decoração">
+        <img src="decoracaos.png" class="estrela-decor" alt="Decoração">
 
         <canvas id="smokeCanvas"></canvas>
-        <img src="/front/images/xicaras1.png" class="xicara" alt="Xícara de café">
+        <img src="xicaras1.png" class="xicara" alt="Xícara de café">
       </div>
 
       <p>Que bom ter você de volta.<br>Continue sua jornada literária.</p>
     </div>
 
     <div class="right">
-      <img src="/front/images/logo.png" class="logo" alt="Logo Coffeely">
+      <img src="logo.png" class="logo" alt="Logo Coffeely">
       <h2>Seja bem-vindo novamente</h2>
 
       <form id="loginForm">
-    <input type="text" id="username" placeholder="Nome de usuário" required>
-    <input type="password" id="password" placeholder="Senha" required>
+        <input type="text" id="username" placeholder="Nome de usuário" required>
+        <input type="password" id="password" placeholder="Senha" required>
 
-    <div class="forgot">
-        <a href="#">Esqueceu a senha?</a>
-    </div>
+        <div class="forgot">
+          <a href="#">Esqueceu a senha?</a>
+        </div>
 
-    <img src="/front/images/arabesco.png" style="width:300px; margin:15px;" alt="Arabesco">
+        <img src="arabesco.png" style="width:300px; margin:15px;" alt="Arabesco">
+        <button type="submit" class="btn">Entrar</button>
+      </form>
 
-    <button type="submit" class="btn">Entrar</button>
-</form>
-
-      <p>Não tem uma conta? <a href="/front/cadastro.html">Cadastre-se</a></p>
+      <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
     </div>
 
   </div>
@@ -235,52 +225,63 @@
     const ctx = canvas.getContext('2d');
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
+
     const smokeParticles = [];
 
     class Smoke {
       constructor() {
         this.x = canvas.width / 2 + (Math.random() * 20 - 10);
-        this.y = canvas.height; 
+        this.y = canvas.height;
         this.size = Math.random() * 10 + 15;
-        this.speedY = Math.random() * 0.4 + 0.25; 
+        this.speedY = Math.random() * 0.2 + 0.15;
         this.speedX = Math.random() * 0.2 - 0.1;
         this.opacity = Math.random() * 0.15 + 0.15;
       }
+
       update() {
         this.y -= this.speedY;
         this.x += this.speedX;
-        this.opacity -= 0.0005; 
-        if(this.size < 50) this.size += 0.15;
+        this.opacity -= 0.0008;
+        if (this.size < 50) this.size += 0.15;
       }
+
       draw() {
         ctx.beginPath();
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+        ctx.fillStyle = `rgba(255,255,255,${this.opacity})`;
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
       }
     }
+
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      if (smokeParticles.length < 15) {
-        if(Math.random() > 0.97) smokeParticles.push(new Smoke());
+      if (smokeParticles.length < 15 && Math.random() > 0.97) {
+        smokeParticles.push(new Smoke());
       }
+
       for (let i = smokeParticles.length - 1; i >= 0; i--) {
         smokeParticles[i].update();
         smokeParticles[i].draw();
-        if (smokeParticles[i].opacity <= 0) smokeParticles.splice(i, 1);
+        if (smokeParticles[i].opacity <= 0) {
+          smokeParticles.splice(i, 1);
+        }
       }
+
       requestAnimationFrame(animate);
     }
+
     animate();
   });
-document.getElementById("loginForm").addEventListener("submit", async function(e) {
+
+
+document.querySelector("form").addEventListener("submit", async function(e) {
     e.preventDefault();
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    const username = document.querySelector('input[type="text"]').value;
+    const password = document.querySelector('input[type="password"]').value;
 
     try {
-        const response = await fetch("/api/entrar/", {
+        const response = await fetch("http://127.0.0.1:8000/api/entrar/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -293,22 +294,24 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 
         const data = await response.json();
 
-        console.log("Resposta do servidor:", data);
-
         if (response.ok) {
-            localStorage.setItem("username", data.username);
-            localStorage.setItem("usuario_id", data.id);
 
-            window.location.href = "/front/biblioteca.html";
-        } else {
-            alert(data.error || "Usuário ou senha inválidos.");
+    localStorage.setItem("usuario_id", data.id);
+
+    alert("Login feito com sucesso, " + data.username);
+
+    window.location.href = "biblioteca.html";
+}
+        else {
+            alert(data.error || "Erro no login");
         }
 
     } catch (error) {
-        console.error("ERRO:", error);
-        alert("Não foi possível conectar ao servidor.");
+        console.error(error);
+        alert("Erro ao conectar com o servidor");
     }
 });
 </script>
+
 </body>
 </html>

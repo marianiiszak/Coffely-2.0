@@ -1,0 +1,109 @@
+.titulo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.titulo-biblioteca {
+  font-family: 'Homela', cursive;
+  font-size: 50px; 
+  color: #8a6b58;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
+  margin: 0; 
+  line-height: 1;
+}
+
+.estrela-decor {
+  height: 65px; 
+  width: auto;
+  object-fit: contain;
+  animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.controle-biblioteca {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #fff3ea;
+  padding: 10px 20px;
+  border-radius: 30px;
+  margin: 0 auto 50px;
+  max-width: 900px;
+}
+
+.busca-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.busca {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  outline: none;
+  font-family: 'Alice', serif;
+  font-size: 16px;
+  color: #6b4c3b;
+}
+
+.lupa { 
+  color: #8a6b58; 
+  margin-right: 5px; 
+  font-size: 16px;
+}
+
+.subtitulo-biblioteca {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;    
+  text-align: center;        
+  color: #8a6b58;               
+  font-weight: bold;            
+  text-shadow: 
+    0.3px 0 0 #8a6b58, 
+   -0.3px 0 0 #8a6b58, 
+    0 0.3px 0 #8a6b58, 
+    0 -0.3px 0 #8a6b58;         
+  text-align: center;      
+  width: 100%;
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 1.5px;
+}
+
+.grid-livros {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 20px; 
+}
+
+
+.livro {
+  width: 120px;
+  height: 165px;
+  background-color: #fff;
+  border-radius: 4px 8px 8px 4px;
+  border-left: 5px solid rgba(0,0,0,0.08); 
+  box-shadow: 0 10px 20px rgba(138, 107, 88, 0.12), 0 4px 6px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.livro:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(138, 107, 88, 0.2), 0 8px 12px rgba(0, 0, 0, 0.08);
+}

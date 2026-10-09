@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coffeely-Entrar</title>
+  <title>Coffeely - Entrar</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  
   <link href="https://fonts.cdnfonts.com/css/meldina" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/homela" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
@@ -91,27 +89,21 @@
       margin-top: 20px;
     }
 
-    /* ESTILO DA FLECHA (Aba de Obras) */
     .back {
       position: absolute;
       top: 25px;
       left: 25px;
-      text-decoration: none;
-      z-index: 10;
-      line-height: 0;
-    }
-
-    .back i { 
-      font-size: 35px; 
-      color: #8a6b58; 
-      cursor: pointer; 
-      background-color: white; 
+      width: 45px;
+      height: 45px;
+      background-color: #8c7362;
+      color: #fff;
       border-radius: 50%;
-      transition: transform 0.2s ease;
-    }
-
-    .back i:hover {
-      transform: scale(1.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 24px;
+      z-index: 10;
     }
 
     /* LADO DIREITO */
@@ -138,33 +130,32 @@
 <body>
   <div class="container">
     <div class="left">
-      <a href="/front/inicio.html" class="back">
-        <i class="fa-solid fa-circle-arrow-left"></i>
-      </a>
+      <a href="index.html" class="back">←</a>
       
       <div class="image-wrapper">
-        <img src="/front/images/decoracaos.png" class="estrela-decor" alt="Decoração">
+        <img src="decoracaos.png" class="estrela-decor" alt="Decoração">
         
         <canvas id="smokeCanvas"></canvas>
-        <img src="/front/images/xicaras2.png" class="xicara" alt="Xícara de café">
+        <img src="xicaras2.png" class="xicara" alt="Xícara de café">
       </div>
 
       <p>Compartilhe sua experiência conosco!<br>A leitura pode mudar vidas.</p>
     </div>
 
     <div class="right">
-      <img src="/front/images/logo.png" class="logo" alt="Logo Coffeely">
+      <img src="logo.png" class="logo" alt="Logo Coffeely">
       <h2>Cadastre-se e aproveite</h2>
-      <form id="cadastroForm">
+      <form id="formCadastro">
         <input type="text" id="nome" placeholder="Nome" required>
         <input type="text" id="username" placeholder="Nome de usuário" required>
         <input type="password" id="password" placeholder="Senha de mínimo 8 digitos" required>
-        <img src="/front/images/arabesco.png" style="width: 300px; margin: 15px;" alt="Arabesco">
+        <img src="arabesco.png" style="width: 300px; margin: 15px;" alt="Arabesco">
         <button type="submit" class="btn">Sign in</button>
       </form>
-      <p>Já possui uma conta? <a href="/front/entrar.html">Entrar</a></p>
+      <p>Já possui uma conta? <a href="entrar.html">Entrar</a></p>
     </div>
   </div>
+
 <script>
   window.addEventListener('load', () => {
     const canvas = document.getElementById('smokeCanvas');
@@ -178,14 +169,14 @@
         this.x = canvas.width / 2 + (Math.random() * 20 - 10);
         this.y = canvas.height; 
         this.size = Math.random() * 10 + 15;
-        this.speedY = Math.random() * 0.4 + 0.25; 
+        this.speedY = Math.random() * 0.2 + 0.15; 
         this.speedX = Math.random() * 0.2 - 0.1;
         this.opacity = Math.random() * 0.15 + 0.15;
       }
       update() {
         this.y -= this.speedY;
         this.x += this.speedX;
-        this.opacity -= 0.0005; 
+        this.opacity -= 0.0008; 
         if(this.size < 50) this.size += 0.15;
       }
       draw() {
@@ -210,41 +201,35 @@
     }
     animate();
   });
-</script><script>
-document.getElementById("cadastroForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+  document.getElementById("formCadastro").addEventListener("submit", function(e) {
+  e.preventDefault(); // impede de recarregar a página
 
-    try {
-        const response = await fetch("/api/cadastro/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password,
-                email: ""
-            })
-        });
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
-        const data = await response.json();
-
-        if (response.ok) {
-            alert("Conta criada com sucesso!");
-            window.location.href = "/front/entrar.html";
-        } else {
-            alert(data.error || "Não foi possível criar a conta.");
-        }
-
-    } catch (error) {
-        console.error(error);
-        alert("Não foi possível conectar ao servidor.");
-    }
+  fetch("http://127.0.0.1:8000/api/cadastro/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      username: username,
+      email: "teste@email.com", // depois a gente melhora isso
+      password: password
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    alert("Usuário cadastrado!");
+    window.location.href = "biblioteca.html";
+  })
+  .catch(error => {
+    console.error(error);
+    alert("Erro ao cadastrar");
+  });
 });
 </script>
-
 </body>
 </html>
